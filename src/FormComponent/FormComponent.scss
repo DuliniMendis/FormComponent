@@ -1,0 +1,13 @@
+@import '../styles/theme.scss';
+
+
+.description{
+	font-family: $font-text;
+	padding:0px !important;
+	color:#999;
+	font-size: $font-size-s;
+}
+
+.askComponent{
+	margin:10px;
+}

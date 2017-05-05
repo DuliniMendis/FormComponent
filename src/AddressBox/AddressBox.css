@@ -1,0 +1,14 @@
+.pac-container {
+  background-color: #00bcd4;
+  margin-top: -20px; }
+
+.pac-item {
+  padding: 5px;
+  color: #fff;
+  padding: 5px 20px 5px 20px; }
+
+.pac-item:hover {
+  background-color: #00a8b2; }
+
+.pac-icon-marker {
+  display: none; }

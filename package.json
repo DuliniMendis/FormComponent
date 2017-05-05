@@ -1,0 +1,38 @@
+{
+  "name": "FormCOmponent",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Multi-use form control",
+  "main": "./dist/entry.js",
+  "author": "Dulini Mendis",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "dateformat": "^2.0.0",
+    "false": "0.0.4",
+    "material-ui": "^0.18.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.8",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "build": "babel ./src --out-dir ./dist && node-sass ./src -o ./dist",
+    "build-css": "node-sass src/ -o src/",
+    "eject": "react-scripts eject",
+    "prepublish": "npm run build",
+    "start": "npm-run-all -p watch-css start-js",
+    "start-js": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive"
+  }
+}
