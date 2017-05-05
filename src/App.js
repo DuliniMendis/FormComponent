@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InputBox from './FormComponent';
+import FormComponent from './FormComponent';
 import './App.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -149,7 +149,7 @@ handleChange = (id,value) => {
 
       {this.state.data.map((item)=>{
         return (
-          <InputBox 
+          <FormComponent
           key={item.id}
           id={item.id}
           type={item.type} 
