@@ -9,7 +9,6 @@ export default class TextBox extends React.Component {
 
   render() {
 
-    console.log(this.props.styles)
 
     let color = "";
     if(this.props.errorState==="success")
@@ -19,7 +18,7 @@ export default class TextBox extends React.Component {
 
   return (
 
-    <div className="askComponent">
+    <div className="askComponent" style={this.props.wrapperStyle}>
     <MuiThemeProvider>
 
     <TextField    
