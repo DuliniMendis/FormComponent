@@ -66,15 +66,18 @@ var InputBox = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (InputBox.__proto__ || Object.getPrototypeOf(InputBox)).call(this, props));
 
     _this.updateState = function (data) {
+      console.log(data);
 
       var errorMsgs = _this.state.errorMsgs;
 
       if (data.component.errorMsgs) errorMsgs.add(data.component.errorMsgs);
 
       _this.setState({
+        styles: data.component.styles,
         type: data.component.type,
         value: data.component.value,
         label: data.component.label,
+        disabled: data.component.disabled,
         mask: data.component.mask,
         placeholder: data.component.placeholder,
         regex: data.component.regex,
@@ -224,9 +227,11 @@ var InputBox = function (_React$Component) {
       error: false,
       errorState: null,
       id: props.id,
+      styles: props.styles ? props.styles : {},
       type: props.type ? props.type : "text",
       label: props.label ? props.label : "",
       value: props.value ? props.value : "",
+      disabled: props.disabled ? props.disabled : false,
       mask: props.mask ? props.mask : "",
       placeholder: props.placeholder ? props.placeholder : "",
       regex: props.regex ? props.regex : "",
@@ -319,10 +324,12 @@ var InputBox = function (_React$Component) {
       switch (this.props.type) {
         case "integer":
           return _react2.default.createElement(_IntegerInputBox2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.handleChange,
             handleKeyUp: this.handleKeyUp,
@@ -333,20 +340,24 @@ var InputBox = function (_React$Component) {
             errorMsgs: errorString });
         case "boolean":
           return _react2.default.createElement(_CheckBox2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.handleCheckboxChange,
             errorState: this.state.errorState,
             errorMsgs: errorString });
         case "address":
           return _react2.default.createElement(_AddressBox2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.handleChange,
             handleKeyUp: this.handleKeyUp,
@@ -358,10 +369,12 @@ var InputBox = function (_React$Component) {
             errorMsgs: errorString });
         case "select":
           return _react2.default.createElement(_SelectBox2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.changeValue,
             placeholder: this.state.placeholder,
@@ -370,10 +383,12 @@ var InputBox = function (_React$Component) {
             errorMsgs: errorString });
         case "textarea":
           return _react2.default.createElement(_TextArea2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.handleChange,
             handleOnBlur: this.handleOnBlur,
@@ -382,10 +397,12 @@ var InputBox = function (_React$Component) {
             errorMsgs: errorString });
         case "date":
           return _react2.default.createElement(_DateInputBox2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.changeValue,
             mask: this.state.mask,
@@ -394,10 +411,12 @@ var InputBox = function (_React$Component) {
             errorMsgs: errorString });
         case "time":
           return _react2.default.createElement(_TimeInputBox2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.changeValue,
             mask: this.state.mask,
@@ -406,10 +425,12 @@ var InputBox = function (_React$Component) {
             errorMsgs: errorString });
         default:
           return _react2.default.createElement(_TextBox2.default, {
+            styles: this.state.styles,
             label: this.state.label,
             description: this.state.description,
             type: this.state.type,
             value: this.state.value,
+            disabled: this.state.disabled,
             id: this.props.id,
             handleChange: this.handleChange,
             handleKeyUp: this.handleKeyUp,

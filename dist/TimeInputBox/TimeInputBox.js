@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -31,57 +31,58 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var TimeInputBox = function (_React$Component) {
-  _inherits(TimeInputBox, _React$Component);
+    _inherits(TimeInputBox, _React$Component);
 
-  function TimeInputBox(props) {
-    _classCallCheck(this, TimeInputBox);
+    function TimeInputBox(props) {
+        _classCallCheck(this, TimeInputBox);
 
-    var _this = _possibleConstructorReturn(this, (TimeInputBox.__proto__ || Object.getPrototypeOf(TimeInputBox)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (TimeInputBox.__proto__ || Object.getPrototypeOf(TimeInputBox)).call(this, props));
 
-    _this.handleChange = function (evt, date) {
+        _this.handleChange = function (evt, date) {
 
-      _this.props.handleChange(date);
-    };
+            _this.props.handleChange(date);
+        };
 
-    _this.state = {
-      value: props.value ? props.value : null
-    };
-    return _this;
-  }
-
-  _createClass(TimeInputBox, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(newProps) {
-      this.setState({
-        value: newProps.value ? newProps.value : null
-      });
+        _this.state = {
+            value: props.value ? props.value : null
+        };
+        return _this;
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _React$createElement;
 
-      return _react2.default.createElement(
-        'div',
-        { className: 'askComponent' },
-        _react2.default.createElement(
-          _MuiThemeProvider2.default,
-          null,
-          _react2.default.createElement(_TimePicker2.default, (_React$createElement = {
-            hintText: this.props.placeholder,
-            value: this.state.value
-          }, _defineProperty(_React$createElement, 'hintText', this.props.placeholder), _defineProperty(_React$createElement, 'floatingLabelText', this.props.label), _defineProperty(_React$createElement, 'floatingLabelFixed', true), _defineProperty(_React$createElement, 'format', '24hr'), _defineProperty(_React$createElement, 'errorText', this.props.errorMsgs), _defineProperty(_React$createElement, 'onChange', this.handleChange), _React$createElement))
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'description' },
-          this.props.description
-        )
-      );
-    }
-  }]);
+    _createClass(TimeInputBox, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(newProps) {
+            this.setState({
+                value: newProps.value ? newProps.value : null
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _React$createElement;
 
-  return TimeInputBox;
+            return _react2.default.createElement(
+                'div',
+                { className: 'askComponent', style: this.props.wrapperStyle },
+                _react2.default.createElement(
+                    _MuiThemeProvider2.default,
+                    null,
+                    _react2.default.createElement(_TimePicker2.default, (_React$createElement = {
+                        hintText: this.props.placeholder,
+                        value: this.state.value,
+                        disabled: this.props.disabled
+                    }, _defineProperty(_React$createElement, 'hintText', this.props.placeholder), _defineProperty(_React$createElement, 'fullWidth', true), _defineProperty(_React$createElement, 'floatingLabelText', this.props.label), _defineProperty(_React$createElement, 'floatingLabelFixed', true), _defineProperty(_React$createElement, 'format', '24hr'), _defineProperty(_React$createElement, 'errorText', this.props.errorMsgs), _defineProperty(_React$createElement, 'style', this.props.styles.style), _defineProperty(_React$createElement, 'inputStyle', this.props.styles.inputStyle), _defineProperty(_React$createElement, 'underlineDisabledStyle', this.props.styles.underlineDisabledStyle), _defineProperty(_React$createElement, 'floatingLabelStyle', this.props.styles.floatingLabelStyle), _defineProperty(_React$createElement, 'floatingLabelFocusStyle', this.props.styles.floatingLabelFocusStyle), _defineProperty(_React$createElement, 'underlineStyle', this.props.styles.underlineStyle), _defineProperty(_React$createElement, 'underlineFocusStyle', this.props.styles.underlineFocusStyle), _defineProperty(_React$createElement, 'errorStyle', this.props.styles.errorStyle), _defineProperty(_React$createElement, 'hintStyle', this.props.styles.hintStyle), _defineProperty(_React$createElement, 'onChange', this.handleChange), _React$createElement))
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'description' },
+                    this.props.description
+                )
+            );
+        }
+    }]);
+
+    return TimeInputBox;
 }(_react2.default.Component);
 
 exports.default = TimeInputBox;

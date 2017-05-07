@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+     value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -29,51 +29,61 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var CheckBox = function (_React$Component) {
-  _inherits(CheckBox, _React$Component);
+     _inherits(CheckBox, _React$Component);
 
-  function CheckBox() {
-    var _ref;
+     function CheckBox() {
+          var _ref;
 
-    var _temp, _this, _ret;
+          var _temp, _this, _ret;
 
-    _classCallCheck(this, CheckBox);
+          _classCallCheck(this, CheckBox);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+          for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+               args[_key] = arguments[_key];
+          }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CheckBox.__proto__ || Object.getPrototypeOf(CheckBox)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (evt) {
-      var value = evt.target.value === "on" ? true : false;
-      _this.props.handleChange(value);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+          return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CheckBox.__proto__ || Object.getPrototypeOf(CheckBox)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (evt) {
+               var value = evt.target.value === "on" ? true : false;
+               _this.props.handleChange(value);
+          }, _temp), _possibleConstructorReturn(_this, _ret);
+     }
 
-  _createClass(CheckBox, [{
-    key: 'render',
-    value: function render() {
+     _createClass(CheckBox, [{
+          key: 'render',
+          value: function render() {
 
-      return _react2.default.createElement(
-        'div',
-        { className: 'askComponent' },
-        _react2.default.createElement(
-          _MuiThemeProvider2.default,
-          null,
-          _react2.default.createElement(_Checkbox2.default, {
-            label: this.props.label,
-            value: this.props.value === "true" ? "on" : "off",
-            id: this.props.id,
-            onClick: this.handleClick })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'description' },
-          this.props.description
-        )
-      );
-    }
-  }]);
+               return _react2.default.createElement(
+                    'div',
+                    { className: 'askComponent', style: this.props.wrapperStyle },
+                    _react2.default.createElement(
+                         _MuiThemeProvider2.default,
+                         null,
+                         _react2.default.createElement(_Checkbox2.default, {
+                              label: this.props.label,
+                              value: this.props.value === "true" ? "on" : "off",
+                              fullWidth: true,
+                              disabled: this.props.disabled,
+                              id: this.props.id,
 
-  return CheckBox;
+                              style: this.props.styles.style,
+                              inputStyle: this.props.styles.inputStyle,
+                              floatingLabelStyle: this.props.styles.floatingLabelStyle,
+                              floatingLabelFocusStyle: this.props.styles.floatingLabelFocusStyle,
+                              errorStyle: this.props.styles.errorStyle,
+
+                              errorText: this.props.errorMsgs ? this.props.errorMsgs : "",
+                              onClick: this.handleClick })
+                    ),
+                    _react2.default.createElement(
+                         'div',
+                         { className: 'description' },
+                         this.props.description
+                    )
+               );
+          }
+     }]);
+
+     return CheckBox;
 }(_react2.default.Component);
 
 exports.default = CheckBox;

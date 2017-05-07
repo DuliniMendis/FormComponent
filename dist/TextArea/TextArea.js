@@ -47,7 +47,7 @@ var TextArea = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'askComponent' },
+                { className: 'askComponent', style: this.props.wrapperStyle },
                 _react2.default.createElement(
                     _MuiThemeProvider2.default,
                     null,
@@ -55,7 +55,9 @@ var TextArea = function (_React$Component) {
                         id: this.props.id.toString(),
                         type: this.props.type,
                         value: this.props.value,
+                        disabled: this.props.disabled,
                         hintText: this.props.placeholder,
+                        fullWidth: true,
                         floatingLabelText: this.props.label,
                         floatingLabelFixed: true,
                         multiLine: true,
@@ -65,6 +67,16 @@ var TextArea = function (_React$Component) {
                         onKeyUp: this.props.handleKeyUp,
                         onBlur: this.props.handleOnBlur,
                         'data-mask': this.props.mask,
+
+                        style: this.props.styles.style,
+                        inputStyle: this.props.styles.inputStyle,
+                        underlineDisabledStyle: this.props.styles.underlineDisabledStyle,
+                        floatingLabelStyle: this.props.styles.floatingLabelStyle,
+                        floatingLabelFocusStyle: this.props.styles.floatingLabelFocusStyle,
+                        underlineStyle: this.props.styles.underlineStyle,
+                        underlineFocusStyle: this.props.styles.underlineFocusStyle,
+                        errorStyle: this.props.styles.errorStyle,
+                        hintStyle: this.props.styles.hintStyle,
 
                         errorText: this.props.errorMsgs ? this.props.errorMsgs : "" })
                 )

@@ -22,6 +22,8 @@ var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -56,7 +58,8 @@ var App = function (_Component) {
         value: 'test',
         description: 'Full Name',
         min: 1,
-        max: 100
+        max: 100,
+        disabled: true
       }, {
         id: 1,
         type: 'integer',
@@ -164,28 +167,50 @@ var App = function (_Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _styles,
+          _this2 = this;
+
+      var styles = (_styles = {
+        wrapperStyle: {
+          margin: '0px'
+        },
+        style: {
+          fontSize: '14px'
+        },
+        inputStyle: {},
+        errorStyle: {},
+        underlineStyle: {},
+        underlineFocusStyle: {}
+      }, _defineProperty(_styles, 'underlineFocusStyle', {}), _defineProperty(_styles, 'underlineDisabledStyle', {}), _defineProperty(_styles, 'floatingLabelStyle', {
+        fontSize: '12px'
+      }), _defineProperty(_styles, 'floatingLabelFocusStyle', {}), _styles);
 
       return _react2.default.createElement(
         'div',
         { className: 'App' },
-        this.state.data.map(function (item) {
-          return _react2.default.createElement(_FormComponent2.default, {
-            key: item.id,
-            id: item.id,
-            type: item.type,
-            value: item.value,
-            label: item.label,
-            mask: item.mask,
-            placeholder: item.placeholder,
-            regex: item.regex,
-            description: item.description,
-            errorMsgs: item.errorMsgs,
-            min: item.min,
-            max: item.max,
-            options: item.options,
-            changeComponent: _this2.handleChange });
-        })
+        _react2.default.createElement(
+          'div',
+          { className: 'wrapper' },
+          this.state.data.map(function (item) {
+            return _react2.default.createElement(_FormComponent2.default, {
+              key: item.id,
+              id: item.id,
+              styles: styles,
+              type: item.type,
+              value: item.value,
+              label: item.label,
+              disabled: item.disabled,
+              mask: item.mask,
+              placeholder: item.placeholder,
+              regex: item.regex,
+              description: item.description,
+              errorMsgs: item.errorMsgs,
+              min: item.min,
+              max: item.max,
+              options: item.options,
+              changeComponent: _this2.handleChange });
+          })
+        )
       );
     }
   }]);

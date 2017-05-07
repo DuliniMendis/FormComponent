@@ -13,49 +13,62 @@ export default class TimeInputBox extends React.Component {
     }
   }
 
-componentWillReceiveProps(newProps){
-  this.setState({
-    value:newProps.value?newProps.value:null
-  })
-}
+  componentWillReceiveProps(newProps){
+    this.setState({
+      value:newProps.value?newProps.value:null
+    })
+  }
 
   handleChange = (evt,date) => {
 
 
    this.props.handleChange(date);
 
-}
+ }
 
 
-render() {
+ render() {
 
- return (
+   return (
 
-  <div className="askComponent">
-
-
-  <MuiThemeProvider>
-
-  <TimePicker
-  hintText={this.props.placeholder}
-  value={this.state.value}
-  hintText={this.props.placeholder}
-  floatingLabelText={this.props.label}
-  floatingLabelFixed={true}
-  format="24hr"
-  errorText={this.props.errorMsgs}
-  onChange={this.handleChange}     />
+    <div className="askComponent" style={this.props.wrapperStyle}>
 
 
+    <MuiThemeProvider>
 
-  </MuiThemeProvider>
- <div className="description">{this.props.description}</div>
+    <TimePicker
+    hintText={this.props.placeholder}
+    value={this.state.value}
+    disabled={this.props.disabled}
+    hintText={this.props.placeholder}
+    fullWidth={true}
+    floatingLabelText={this.props.label}
+    floatingLabelFixed={true}
+    format="24hr"
+    errorText={this.props.errorMsgs}
 
-  </div>
+    style={this.props.styles.style}
+    inputStyle={this.props.styles.inputStyle}
+    underlineDisabledStyle={this.props.styles.underlineDisabledStyle}
+    floatingLabelStyle={this.props.styles.floatingLabelStyle}
+    floatingLabelFocusStyle={this.props.styles.floatingLabelFocusStyle}
+    underlineStyle={this.props.styles.underlineStyle}
+    underlineFocusStyle={this.props.styles.underlineFocusStyle}
+    errorStyle={this.props.styles.errorStyle}
+    hintStyle={this.props.styles.hintStyle}
+
+    onChange={this.handleChange}     />
 
 
-  );
-}
+
+    </MuiThemeProvider>
+    <div className="description">{this.props.description}</div>
+
+    </div>
+
+
+    );
+ }
 
 
 }

@@ -24,9 +24,11 @@ export default class InputBox extends React.Component {
       error: false,
       errorState:null,
       id: props.id,
+      styles:props.styles?props.styles:{},
       type: props.type?props.type:"text",
       label: props.label?props.label:"",
       value: props.value?props.value:"",
+      disabled:props.disabled?props.disabled:false,
       mask: props.mask?props.mask:"",
       placeholder: props.placeholder?props.placeholder:"",
       regex: props.regex?props.regex:"",
@@ -40,6 +42,7 @@ export default class InputBox extends React.Component {
   }
 
   updateState = (data) => {
+    console.log(data)
 
     let errorMsgs = this.state.errorMsgs;
 
@@ -47,9 +50,11 @@ export default class InputBox extends React.Component {
         errorMsgs.add(data.component.errorMsgs)
 
       this.setState({
+        styles: data.component.styles,
         type: data.component.type,
         value: data.component.value,
         label: data.component.label,
+        disabled: data.component.disabled,
         mask: data.component.mask,
         placeholder: data.component.placeholder,
         regex: data.component.regex,
@@ -293,10 +298,12 @@ export default class InputBox extends React.Component {
     switch(this.props.type) {     
       case "integer":
           return (<IntegerInputBox 
+            styles={this.state.styles}
             label={this.state.label}
             description={this.state.description}
             type={this.state.type} 
              value={this.state.value} 
+             disabled={this.state.disabled}
              id={this.props.id}
              handleChange={this.handleChange} 
              handleKeyUp={this.handleKeyUp}
@@ -307,20 +314,24 @@ export default class InputBox extends React.Component {
              errorMsgs={errorString} />); 
         case "boolean":
           return (<CheckBox 
+            styles={this.state.styles}
              label={this.state.label}
              description={this.state.description}
              type={this.state.type} 
              value={this.state.value} 
+              disabled={this.state.disabled}
              id={this.props.id}
              handleChange={this.handleCheckboxChange}  
              errorState={this.state.errorState}
              errorMsgs={errorString} />);
          case "address":
           return (<AddressBox 
+            styles={this.state.styles}
              label={this.state.label}
              description={this.state.description}
              type={this.state.type} 
              value={this.state.value} 
+              disabled={this.state.disabled}
              id={this.props.id}
              handleChange={this.handleChange} 
              handleKeyUp={this.handleKeyUp}
@@ -332,10 +343,12 @@ export default class InputBox extends React.Component {
             errorMsgs={errorString}  />);
           case "select":
           return (<SelectBox 
+            styles={this.state.styles}
              label={this.state.label}
              description={this.state.description}
              type={this.state.type} 
              value={this.state.value} 
+              disabled={this.state.disabled}
              id={this.props.id}
              handleChange={this.changeValue}              
              placeholder={this.state.placeholder}
@@ -344,10 +357,12 @@ export default class InputBox extends React.Component {
              errorMsgs={errorString} />);
           case "textarea":
           return (<TextArea
+            styles={this.state.styles}
              label={this.state.label}
              description={this.state.description}
              type={this.state.type} 
              value={this.state.value} 
+              disabled={this.state.disabled}
              id={this.props.id}
              handleChange={this.handleChange}              
              handleOnBlur={this.handleOnBlur}
@@ -356,10 +371,12 @@ export default class InputBox extends React.Component {
              errorMsgs={errorString} />);
           case "date":
           return (<DateInputBox
+            styles={this.state.styles}
              label={this.state.label}
              description={this.state.description}
              type={this.state.type} 
-             value={this.state.value} 
+             value={this.state.value}
+              disabled={this.state.disabled} 
              id={this.props.id}
              handleChange={this.changeValue}             
              mask={this.state.mask}
@@ -368,10 +385,12 @@ export default class InputBox extends React.Component {
              errorMsgs={errorString} />);
           case "time":
           return (<TimeInputBox
+            styles={this.state.styles}
              label={this.state.label}
              description={this.state.description}
              type={this.state.type} 
              value={this.state.value} 
+              disabled={this.state.disabled}
              id={this.props.id}
              handleChange={this.changeValue} 
              mask={this.state.mask}
@@ -380,10 +399,12 @@ export default class InputBox extends React.Component {
              errorMsgs={errorString} />);
        default:
           return (<TextBox 
+            styles={this.state.styles}
              label={this.state.label}
             description={this.state.description}
             type={this.state.type} 
              value={this.state.value} 
+              disabled={this.state.disabled}
              id={this.props.id}
              handleChange={this.handleChange} 
              handleKeyUp={this.handleKeyUp}

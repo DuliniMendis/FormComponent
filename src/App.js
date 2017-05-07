@@ -16,7 +16,8 @@ export default class App extends Component {
         value: 'test',
         description: 'Full Name',
         min:1,
-        max:100
+        max:100,
+        disabled:true
       },
       {
         id:1,
@@ -120,9 +121,9 @@ export default class App extends Component {
         mask: '',
         placeholder: 'www.google.com',
         regex: [{
-                regexStr:/[-a-zA-Z0-9@:%_\+.~#?&=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&=]*)?/,
-                errorMsg:'Please input a valid URL'
-              }],
+          regexStr:/[-a-zA-Z0-9@:%_\+.~#?&=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&=]*)?/,
+          errorMsg:'Please input a valid URL'
+        }],
         description: '',
         errorMsgs:'',
         min:0,
@@ -134,27 +135,63 @@ export default class App extends Component {
   }
 
 
-handleChange = (id,value) => {
-  let data = this.state.data.slice();
-  let itemIndex = data.findIndex((item)=>{return item.id===id;});
-  let item = data[itemIndex];
-  item.value=value;
-  this.setState({data:data});
-}
+  handleChange = (id,value) => {
+    let data = this.state.data.slice();
+    let itemIndex = data.findIndex((item)=>{return item.id===id;});
+    let item = data[itemIndex];
+    item.value=value;
+    this.setState({data:data});
+  }
 
 
   render() {
+
+    let styles={
+      wrapperStyle:{
+      margin:'0px',
+      },
+      style:{
+        fontSize:'14px'
+      },
+      inputStyle:{
+        
+      },
+      errorStyle: {
+
+      },
+      underlineStyle: {
+
+      },
+      underlineFocusStyle: {
+
+      },
+      underlineFocusStyle: {
+
+      },
+      underlineDisabledStyle:{
+
+      },
+      floatingLabelStyle: {
+        fontSize:'12px'
+      },
+      floatingLabelFocusStyle: {
+      },
+    }
+
     return (
       <div className="App">
+      <div className="wrapper">
 
       {this.state.data.map((item)=>{
         return (
           <FormComponent
           key={item.id}
           id={item.id}
+          styles={styles}
           type={item.type} 
           value={item.value} 
           label={item.label} 
+          disabled={item.disabled}
           mask={item.mask} 
           placeholder={item.placeholder}             
           regex={item.regex}      
@@ -166,7 +203,7 @@ handleChange = (id,value) => {
           changeComponent={this.handleChange}/>
           );
       })}
-      
+      </div>
 
 
       </div>

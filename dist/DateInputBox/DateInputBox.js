@@ -71,14 +71,15 @@ var DateInputBox = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'askComponent' },
+        { className: 'askComponent', style: this.props.wrapperStyle },
         _react2.default.createElement(
           _MuiThemeProvider2.default,
           null,
           _react2.default.createElement(_DatePicker2.default, (_React$createElement = {
             hintText: this.props.placeholder,
-            value: this.state.value
-          }, _defineProperty(_React$createElement, 'hintText', this.props.placeholder), _defineProperty(_React$createElement, 'floatingLabelText', this.props.label), _defineProperty(_React$createElement, 'floatingLabelFixed', true), _defineProperty(_React$createElement, 'formatDate', this.formatValue), _defineProperty(_React$createElement, 'onChange', this.handleChange), _React$createElement))
+            value: this.state.value,
+            disabled: this.props.disabled
+          }, _defineProperty(_React$createElement, 'hintText', this.props.placeholder), _defineProperty(_React$createElement, 'fullWidth', true), _defineProperty(_React$createElement, 'floatingLabelText', this.props.label), _defineProperty(_React$createElement, 'floatingLabelFixed', true), _defineProperty(_React$createElement, 'formatDate', this.formatValue), _defineProperty(_React$createElement, 'style', this.props.styles.style), _defineProperty(_React$createElement, 'inputStyle', this.props.styles.inputStyle), _defineProperty(_React$createElement, 'underlineDisabledStyle', this.props.styles.underlineDisabledStyle), _defineProperty(_React$createElement, 'floatingLabelStyle', this.props.styles.floatingLabelStyle), _defineProperty(_React$createElement, 'floatingLabelFocusStyle', this.props.styles.floatingLabelFocusStyle), _defineProperty(_React$createElement, 'underlineStyle', this.props.styles.underlineStyle), _defineProperty(_React$createElement, 'underlineFocusStyle', this.props.styles.underlineFocusStyle), _defineProperty(_React$createElement, 'errorStyle', this.props.styles.errorStyle), _defineProperty(_React$createElement, 'hintStyle', this.props.styles.hintStyle), _defineProperty(_React$createElement, 'errorText', this.props.errorMsgs ? this.props.errorMsgs : ""), _defineProperty(_React$createElement, 'onChange', this.handleChange), _React$createElement))
         ),
         _react2.default.createElement(
           'div',
